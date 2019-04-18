@@ -74,6 +74,17 @@ public class LoginFrame extends JFrame implements ActionListener {
             UserModel userModel=new UserModel();
             String res=userModel.CheckUser(u,p);
             System.out.println(u+" "+res);
+            if (res.equals("管理员"))
+            {
+                new OperateFrame();
+                //关闭登录界面
+                this.dispose();
+
+            }else if (res.equals(""))
+            {
+                JOptionPane.showMessageDialog(this,"用户名密码错误");
+            }
+
             }
         else if(e.getSource()==jb2){
             this.setVisible(false);
