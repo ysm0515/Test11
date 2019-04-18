@@ -1,5 +1,3 @@
-package ui;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -35,19 +33,20 @@ public class SqHelper {
     }
     public ResultSet query(String sql, String []paras)
     {
+//
         try {
-            ps=ct.prepareStatement(sql);
+            ps=ct.prepareStatement(sql);    //创建预处理对象preparedStatement
             //对sql进行赋值
             for (int i=0;i<paras.length;i++)
             {
                 ps.setString(i+1,paras[i]);
             }
-            rs=ps.executeQuery();
+            rs=ps.executeQuery();   //处理查询结果集
         }catch (Exception e)
         {
             e.printStackTrace();
         }
-        return rs;
+         return rs;
     }
     //构造关闭资源的方法
     public void close()

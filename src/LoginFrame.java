@@ -1,10 +1,7 @@
-package ui;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
 
 public class LoginFrame extends JFrame implements ActionListener {
 
@@ -75,9 +72,9 @@ public class LoginFrame extends JFrame implements ActionListener {
             String p=new String(jps1.getPassword());
 //            System.out.println(u+"  "+p);
             UserModel userModel=new UserModel();
-            ResultSet res=userModel.CheckUser(u,p);
+            String res=userModel.CheckUser(u,p);
             System.out.println(u+" "+res);
-        }
+            }
         else if(e.getSource()==jb2){
             this.setVisible(false);
 
@@ -92,7 +89,4 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 
 }
-
-
-
 
